@@ -10,7 +10,6 @@ df = df.drop(
      'hp', "defense", 'abilities', 'attack', 'capture_rate'], axis=1)
 
 print(df)
-df.to_csv('filtering.csv')
 sns.set(color_codes=True)
 
 
@@ -42,7 +41,49 @@ def against_bug_distribution():
             bins_vec.append(i)
 
     bins_vec = sorted(bins_vec)
+    print(bins_vec)
     plt.hist(x, bins=bins_vec)
     plt.show()
 
 
+def against_dark_distribution():
+    x = np.array(df['against_dark'])
+    bins_vec = []
+    for i in x:
+        if i not in bins_vec:
+            bins_vec.append(i)
+
+    bins_vec = sorted(bins_vec)
+    print(bins_vec)
+    plt.hist(x, bins=bins_vec)
+    plt.show()
+
+
+print(df)
+
+df["against_bug"], df["against_dark"], df["against_dragon"], df["against_electric"], df["against_fairy"], df[
+    "against_fight"], df["against_fire"], df["against_flying"], df["against_ghost"], df["against_grass"], df[
+    "against_ground"], df["against_ice"], df["against_normal"], df["against_poison"], df["against_psychic"], df[
+    "against_steel"], df["against_rock"], df["against_water"] = df["against_bug"].replace([0.25, 0.5, 1.00, 2.00, 4.00],
+                                                                                          ["terrible", "bad", "inter",
+                                                                                           "good", "amazing"]), df[
+                                                                    "against_dark"].replace(
+    [0.25, 0.5, 1.00, 2.00, 4.00], ["terrible", "bad", "inter", "good", "amazing"]), df["against_dragon"].replace(
+    [0.25, 0.5, 1.00, 2.00, 4.00], ["terrible", "bad", "inter", "good", "amazing"]), df["against_electric"].replace(
+    [0.25, 0.5, 1.00, 2.00, 4.00], ["terrible", "bad", "inter", "good", "amazing"]), df["against_fairy"].replace(
+    [0.25, 0.5, 1.00, 2.00, 4.00], ["terrible", "bad", "inter", "good", "amazing"]), df["against_fire"].replace(
+    [0.25, 0.5, 1.00, 2.00, 4.00], ["terrible", "bad", "inter", "good", "amazing"]), df["against_flying"].replace(
+    [0.25, 0.5, 1.00, 2.00, 4.00], ["terrible", "bad", "inter", "good", "amazing"]), df["against_ghost"].replace(
+    [0.25, 0.5, 1.00, 2.00, 4.00], ["terrible", "bad", "inter", "good", "amazing"]), df["against_grass"].replace(
+    [0.25, 0.5, 1.00, 2.00, 4.00], ["terrible", "bad", "inter", "good", "amazing"]), df["against_ground"].replace(
+    [0.25, 0.5, 1.00, 2.00, 4.00], ["terrible", "bad", "inter", "good", "amazing"]), df["against_ice"].replace(
+    [0.25, 0.5, 1.00, 2.00, 4.00], ["terrible", "bad", "inter", "good", "amazing"]), df["against_normal"].replace(
+    [0.25, 0.5, 1.00, 2.00, 4.00], ["terrible", "bad", "inter", "good", "amazing"]), df["against_poison"].replace(
+    [0.25, 0.5, 1.00, 2.00, 4.00], ["terrible", "bad", "inter", "good", "amazing"]), df["against_psychic"].replace(
+    [0.25, 0.5, 1.00, 2.00, 4.00], ["terrible", "bad", "inter", "good", "amazing"]), df["against_steel"].replace(
+    [0.25, 0.5, 1.00, 2.00, 4.00], ["terrible", "bad", "inter", "good", "amazing"]), df["against_rock"].replace(
+    [0.25, 0.5, 1.00, 2.00, 4.00], ["terrible", "bad", "inter", "good", "amazing"]), df["against_water"].replace(
+    [0.25, 0.5, 1.00, 2.00, 4.00], ["terrible", "bad", "inter", "good", "amazing"]), df["against_water"].replace(
+    [0.25, 0.5, 1.00, 2.00, 4.00], ["terrible", "bad", "inter", "good", "amazing"]),
+
+df.to_csv('filtering.csv')
