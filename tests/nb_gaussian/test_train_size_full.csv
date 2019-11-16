@@ -1,0 +1,47 @@
+size, acc
+0.1,0.8024691358024691
+0.2,0.84472049689441
+0.3,0.8381742738589212
+0.4,0.8224299065420559
+0.5,0.8279301745635909
+0.6,0.83991683991684
+0.7,0.8360071301247773
+0.8,0.7784711388455539
+0.9,0.6449375866851595
+/*
+Attrs
+
+against = [
+    "against_bug",
+    "against_dark",
+    "against_dragon",
+    "against_electric",
+    "against_fairy",
+    "against_fight",
+    "against_fire",
+    "against_flying",
+    "against_ghost",
+    "against_grass",
+    "against_ground",
+    "against_ice",
+    "against_normal",
+    "against_poison",
+    "against_psychic",
+    "against_rock",
+    "against_steel",
+    "against_water",
+    "attack",
+    "base_egg_steps",
+    "base_happiness",
+    "base_total",
+    #"capture_rate",
+    "defense",
+    #"experience_growth",
+    #"height_m",
+    #"hp",
+    "sp_attack",
+    "sp_defense",
+    "speed",
+    #"weight_kg",
+]
+*/

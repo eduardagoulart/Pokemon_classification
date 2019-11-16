@@ -1,8 +1,11 @@
 import pandas as pd
-from sklearn import datasets
+import numpy as np
 from sklearn.model_selection import train_test_split
+from sklearn.model_selection import cross_val_score
 from sklearn.ensemble import RandomForestClassifier
 from sklearn import metrics
+from sklearn.neighbors import KNeighborsClassifier
+
 
 
 df = pd.read_csv("pokemon.csv")
@@ -26,18 +29,27 @@ against = [
     "against_rock",
     "against_steel",
     "against_water",
+    #"attack",
+    #"base_egg_steps",
+    #"base_happiness",
+    #"base_total",
+    #"capture_rate",
+    #"defense",
+    #"experience_growth",
+    #"height_m",
+    #"hp",
+    #"sp_attack",
+    #"sp_defense",
+    #"speed",
+    #"weight_kg",
 ]
 
 X = df[against]
 y = df['type1']
 
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.4, random_state=42)
 
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.7)
-
-clf=RandomForestClassifier(n_estimators=100)
-clf.fit(X_train,y_train)
-y_pred=clf.predict(X_test)
-
-print("Accuracy:",metrics.accuracy_score(y_test, y_pred))
-feature_imp = pd.Series(clf.feature_importances_, index=against).sort_values(ascending=False)
-print(feature_imp)
+clf = KNeighborsClassifier(n_neighbors=50)
+clf.fit(X_train, y_train)
+y_pred = clf.predict(X_test)
+print(metrics.accuracy_score(y_test, y_pred))
